@@ -4,81 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Нейроквест «Путь самурая» — образцы для двуручного рисования</title>
-    <!-- Подключаем библиотеки для генерации PDF из скриншота -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
             background: #faf8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
             color: #333;
         }
         #capture {
-            /* Этот блок попадёт в PDF */
             background: #faf8f0;
-            padding: 1rem;
+            width: 700px;
+            padding: 0.8rem;
             border-radius: 16px;
+            box-sizing: border-box;
         }
         h1 {
             text-align: center;
             color: #b34b4b;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            margin: 0.2rem 0 0.2rem 0;
         }
         .subtitle {
             text-align: center;
             font-style: italic;
-            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
             color: #666;
         }
         .sample-box {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
         }
         .sample-box h2 {
-            margin: 0 0 0.8rem 0;
+            margin: 0 0 0.4rem 0;
             color: #2c5f2d;
-            font-size: 1.4rem;
-            border-left: 6px solid #e0a96d;
-            padding-left: 1rem;
+            font-size: 1.2rem;
+            border-left: 5px solid #e0a96d;
+            padding-left: 0.8rem;
         }
         .instruction {
-            font-size: 1rem;
-            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
         .row {
             display: flex;
             align-items: center;
             justify-content: space-around;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 0.7rem;
         }
         .pair {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
             background: #f4f1e1;
-            padding: 0.8rem 1.2rem;
-            border-radius: 14px;
+            padding: 0.5rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
         }
         .hand-symbol {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
         .figure {
-            font-size: 3.5rem;
+            font-size: 2.2rem;
             line-height: 1;
-            letter-spacing: 0.3rem;
+            letter-spacing: 0.2rem;
         }
         .big-char {
-            font-size: 6rem;
+            font-size: 4rem;
             line-height: 1;
-            margin: 0.3rem 0;
+            margin: 0.1rem 0;
             font-family: serif;
         }
         .canvas-wrap {
@@ -86,13 +90,12 @@
             justify-content: center;
         }
         button {
-            display: block;
-            margin: 2.5rem auto 1rem;
+            margin: 1.5rem auto 0.5rem;
             background: #2c5f2d;
             color: white;
             border: none;
-            padding: 1rem 2.5rem;
-            font-size: 1.2rem;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -106,14 +109,13 @@
         }
         .footer-note {
             text-align: center;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             color: #888;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
-    <!-- Весь контент для печати обёрнут в #capture -->
     <div id="capture">
         <h1>🌸 Зеркальные художники 🌸</h1>
         <p class="subtitle">Образцы для двуручного рисования (нейроквест «Путь самурая»)</p>
@@ -149,7 +151,7 @@
         <!-- 2. Основные фигуры -->
         <div class="sample-box">
             <h2>2. Простые фигуры</h2>
-            <p class="instruction">Дети пробуют рисовать <strong>зеркально</strong> (левая рука рисует левую половинку, правая — правую) или <strong>одинаково</strong>.</p>
+            <p class="instruction">Дети пробуют рисовать <strong>зеркально</strong> или <strong>одинаково</strong>.</p>
             <div class="row">
                 <div class="pair">
                     <span class="hand-symbol">🤚🖐️</span>
@@ -176,30 +178,30 @@
 
         <!-- 3. Японские иероглифы -->
         <div class="sample-box">
-            <h2>3. Японские символы (ка́ндзи)</h2>
-            <p class="instruction">Рисуем иероглиф одновременно двумя руками. Ведущий может показать крупный образец.</p>
+            <h2>3. Японские символы</h2>
+            <p class="instruction">Рисуем иероглиф одновременно двумя руками.</p>
             <div class="row">
                 <div class="pair" style="flex-direction: column; align-items: center;">
                     <span class="big-char">山</span>
-                    <span>Гора (яма)</span>
+                    <span>Гора</span>
                 </div>
                 <div class="pair" style="flex-direction: column; align-items: center;">
                     <span class="big-char">川</span>
-                    <span>Река (кава)</span>
+                    <span>Река</span>
                 </div>
                 <div class="pair" style="flex-direction: column; align-items: center;">
                     <span class="big-char">木</span>
-                    <span>Дерево (ки)</span>
+                    <span>Дерево</span>
                 </div>
             </div>
         </div>
 
-        <!-- 4. Ветка сакуры (схема) -->
+        <!-- 4. Ветка сакуры -->
         <div class="sample-box">
             <h2>4. Ветка сакуры</h2>
-            <p class="instruction">Левая рука рисует цветок (пять лепестков), правая рука одновременно дорисовывает лепестки вокруг. Можно наоборот. Главное — синхронно.</p>
+            <p class="instruction">Левая рука — цветок (розовый), правая рука — лепестки (оранжевый). Рисовать синхронно!</p>
             <div class="canvas-wrap">
-                <canvas id="sakuraCanvas" width="300" height="160" style="background:#fffaf5; border-radius:16px;"></canvas>
+                <canvas id="sakuraCanvas" width="280" height="130" style="background:#fffaf5; border-radius:12px;"></canvas>
             </div>
         </div>
     </div>
@@ -208,7 +210,7 @@
     <p class="footer-note">Распечатайте PDF и покажите детям перед испытанием «Зеркальные художники»</p>
 
     <script>
-        // Рисуем схему сакуры на canvas (остаётся как в исходном варианте)
+        // Рисуем упрощённую ветку сакуры
         (function drawSakura() {
             const canvas = document.getElementById('sakuraCanvas');
             if (!canvas) return;
@@ -216,39 +218,39 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             // Ветка
             ctx.beginPath();
-            ctx.moveTo(50, 120);
-            ctx.quadraticCurveTo(150, 80, 250, 100);
+            ctx.moveTo(30, 100);
+            ctx.quadraticCurveTo(130, 60, 240, 80);
             ctx.strokeStyle = '#8B5A2B';
-            ctx.lineWidth = 4;
+            ctx.lineWidth = 3.5;
             ctx.stroke();
-            function drawFlower(x, y, color) {
+            // Функция рисования цветка
+            function drawFlower(x, y, outerColor, innerColor) {
                 ctx.beginPath();
                 for (let i = 0; i < 5; i++) {
                     let angle = i * (Math.PI * 2 / 5) - Math.PI / 2;
-                    let px = x + 14 * Math.cos(angle);
-                    let py = y + 14 * Math.sin(angle);
+                    let px = x + 12 * Math.cos(angle);
+                    let py = y + 12 * Math.sin(angle);
                     ctx.lineTo(px, py);
                 }
                 ctx.closePath();
-                ctx.strokeStyle = color;
-                ctx.lineWidth = 2.5;
+                ctx.strokeStyle = outerColor;
+                ctx.lineWidth = 2;
                 ctx.stroke();
-                ctx.fillStyle = color === '#d98695' ? '#f9c5d1' : '#f9d1c5';
+                ctx.fillStyle = innerColor;
                 ctx.fill();
             }
-            drawFlower(100, 55, '#d98695');
-            drawFlower(210, 65, '#e09f7e');
-            ctx.font = 'italic 12px "Segoe UI", sans-serif';
+            drawFlower(90, 45, '#d98695', '#f9c5d1');
+            drawFlower(190, 55, '#e09f7e', '#f9d1c5');
+            ctx.font = 'italic 11px "Segoe UI", sans-serif';
             ctx.fillStyle = '#333';
-            ctx.fillText('🤚 левая', 65, 90);
-            ctx.fillText('🖐️ правая', 195, 100);
+            ctx.fillText('🤚 левая', 55, 80);
+            ctx.fillText('🖐️ правая', 175, 90);
         })();
 
         async function downloadPDF() {
             const element = document.getElementById('capture');
-            // Делаем скриншот всего блока с образцами
             const canvas = await html2canvas(element, {
-                scale: 2,               // высокое разрешение
+                scale: 2,
                 backgroundColor: '#faf8f0',
                 logging: false
             });
@@ -260,23 +262,24 @@
             const pageWidth = pdf.internal.pageSize.getWidth();
             const pageHeight = pdf.internal.pageSize.getHeight();
 
-            const imgWidth = pageWidth - 20; // поля по 10 мм слева и справа
-            const imgHeight = (canvas.height * imgWidth) / canvas.width;
+            // Максимальная полезная область: поля по 10 мм с каждой стороны
+            const maxWidth = pageWidth - 20;
+            const maxHeight = pageHeight - 20;
 
-            let heightLeft = imgHeight;
-            let position = 10; // отступ сверху
+            let imgWidth = maxWidth;
+            let imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-            // Добавляем изображение, при необходимости разбивая на страницы
-            pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-            heightLeft -= (pageHeight - 20);
-
-            while (heightLeft > 0) {
-                position = heightLeft - imgHeight + 10;
-                pdf.addPage();
-                pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-                heightLeft -= (pageHeight - 20);
+            // Если высота выходит за пределы страницы, уменьшаем ширину изображения
+            if (imgHeight > maxHeight) {
+                imgWidth = (canvas.width * maxHeight) / canvas.height;
+                imgHeight = maxHeight;
             }
 
+            // Центрируем по горизонтали (по левому краю с отступом 10 мм или центру)
+            const x = (pageWidth - imgWidth) / 2;
+            const y = 10;
+
+            pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
             pdf.save('obrazcy-dvuruchnogo-risovaniya.pdf');
         }
     </script>

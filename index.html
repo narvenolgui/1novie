@@ -2,286 +2,154 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Нейроквест «Путь самурая» — образцы для двуручного рисования</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <title>Дерево моих интересов</title>
     <style>
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: #faf8f0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem;
-            color: #333;
-        }
-        #capture {
-            background: #faf8f0;
-            width: 700px;
-            padding: 0.8rem;
-            border-radius: 16px;
-            box-sizing: border-box;
-        }
-        h1 {
-            text-align: center;
-            color: #b34b4b;
-            font-size: 1.8rem;
-            margin: 0.2rem 0 0.2rem 0;
-        }
-        .subtitle {
-            text-align: center;
-            font-style: italic;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            color: #666;
-        }
-        .sample-box {
-            background: white;
-            border-radius: 14px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            padding: 0.8rem 1rem;
-            margin-bottom: 1rem;
-        }
-        .sample-box h2 {
-            margin: 0 0 0.4rem 0;
-            color: #2c5f2d;
-            font-size: 1.2rem;
-            border-left: 5px solid #e0a96d;
-            padding-left: 0.8rem;
-        }
-        .instruction {
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-        .row {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 0.7rem;
-        }
-        .pair {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #f4f1e1;
-            padding: 0.5rem 0.8rem;
-            border-radius: 12px;
-            font-size: 0.9rem;
-        }
-        .hand-symbol {
-            font-size: 1.4rem;
-        }
-        .figure {
-            font-size: 2.2rem;
-            line-height: 1;
-            letter-spacing: 0.2rem;
-        }
-        .big-char {
-            font-size: 4rem;
-            line-height: 1;
-            margin: 0.1rem 0;
-            font-family: serif;
-        }
-        .canvas-wrap {
+            font-family: 'Arial', sans-serif;
+            background: #f5f0e8;
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        button {
-            margin: 1.5rem auto 0.5rem;
-            background: #2c5f2d;
+        .container {
+            max-width: 800px;
+            text-align: center;
+        }
+        .btn-print {
+            background: #6b8e23;
             color: white;
             border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1.1rem;
-            border-radius: 50px;
+            border-radius: 30px;
+            padding: 12px 35px;
+            font-size: 18px;
+            font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transition: background 0.2s;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+            letter-spacing: 1px;
         }
-        button:hover {
-            background: #1f4520;
+        .btn-print:hover {
+            background: #556b2f;
         }
-        button:active {
-            transform: translateY(1px);
+        .tree-svg {
+            width: 100%;
+            height: auto;
         }
-        .footer-note {
-            text-align: center;
-            margin-top: 0.5rem;
-            color: #888;
-            font-size: 0.8rem;
+        /* Стили для печати */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .btn-print {
+                display: none;
+            }
+            .container {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="capture">
-        <h1>🌸 Зеркальные художники 🌸</h1>
-        <p class="subtitle">Образцы для двуручного рисования (нейроквест «Путь самурая»)</p>
+<div class="container">
+    <!-- Кнопка печати -->
+    <button class="btn-print" onclick="window.print()">🖨️ Распечатать / Сохранить PDF</button>
 
-        <!-- 1. Линии и круги -->
-        <div class="sample-box">
-            <h2>1. Разминка — линии и круги</h2>
-            <p class="instruction">Начинаем с простых движений. Рисуем <strong>обеими руками одновременно</strong>.</p>
-            <div class="row">
-                <div class="pair">
-                    <span class="hand-symbol">🖐️🤚</span>
-                    <span class="figure">⬇️ ⬇️</span>
-                    <span>Вертикальные линии</span>
-                </div>
-                <div class="pair">
-                    <span class="hand-symbol">🖐️🤚</span>
-                    <span class="figure">➡️ ⬅️</span>
-                    <span>Горизонтальные в разные стороны</span>
-                </div>
-                <div class="pair">
-                    <span class="hand-symbol">🖐️🤚</span>
-                    <span class="figure">🔄 🔄</span>
-                    <span>Круги в одну сторону</span>
-                </div>
-                <div class="pair">
-                    <span class="hand-symbol">🖐️🤚</span>
-                    <span class="figure">↩️ ↪️</span>
-                    <span>Круги в разные стороны</span>
-                </div>
-            </div>
-        </div>
+    <!-- SVG-рисунок дерева -->
+    <svg class="tree-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+        <!-- Фон -->
+        <rect width="800" height="800" fill="#fef9e4" rx="20" ry="20" stroke="#d4b483" stroke-width="4"/>
 
-        <!-- 2. Основные фигуры -->
-        <div class="sample-box">
-            <h2>2. Простые фигуры</h2>
-            <p class="instruction">Дети пробуют рисовать <strong>зеркально</strong> или <strong>одинаково</strong>.</p>
-            <div class="row">
-                <div class="pair">
-                    <span class="hand-symbol">🤚🖐️</span>
-                    <span class="figure">⬤ ⬤</span>
-                    <span>Круг</span>
-                </div>
-                <div class="pair">
-                    <span class="hand-symbol">🤚🖐️</span>
-                    <span class="figure">▲ ▲</span>
-                    <span>Треугольник</span>
-                </div>
-                <div class="pair">
-                    <span class="hand-symbol">🤚🖐️</span>
-                    <span class="figure">■ ■</span>
-                    <span>Квадрат</span>
-                </div>
-                <div class="pair">
-                    <span class="hand-symbol">🤚🖐️</span>
-                    <span class="figure">♥ ♥</span>
-                    <span>Сердечко</span>
-                </div>
-            </div>
-        </div>
+        <!-- Трава -->
+        <ellipse cx="400" cy="720" rx="350" ry="40" fill="#7c9f58" opacity="0.7"/>
+        <ellipse cx="400" cy="730" rx="300" ry="30" fill="#8db255" opacity="0.8"/>
 
-        <!-- 3. Японские иероглифы -->
-        <div class="sample-box">
-            <h2>3. Японские символы</h2>
-            <p class="instruction">Рисуем иероглиф одновременно двумя руками.</p>
-            <div class="row">
-                <div class="pair" style="flex-direction: column; align-items: center;">
-                    <span class="big-char">山</span>
-                    <span>Гора</span>
-                </div>
-                <div class="pair" style="flex-direction: column; align-items: center;">
-                    <span class="big-char">川</span>
-                    <span>Река</span>
-                </div>
-                <div class="pair" style="flex-direction: column; align-items: center;">
-                    <span class="big-char">木</span>
-                    <span>Дерево</span>
-                </div>
-            </div>
-        </div>
+        <!-- Корни -->
+        <path d="M400 620 Q350 680 280 700" fill="none" stroke="#5d3a1a" stroke-width="12" stroke-linecap="round"/>
+        <path d="M400 620 Q380 690 360 720" fill="none" stroke="#5d3a1a" stroke-width="10" stroke-linecap="round"/>
+        <path d="M400 620 Q420 690 440 720" fill="none" stroke="#5d3a1a" stroke-width="10" stroke-linecap="round"/>
+        <path d="M400 620 Q460 680 520 700" fill="none" stroke="#5d3a1a" stroke-width="12" stroke-linecap="round"/>
 
-        <!-- 4. Ветка сакуры -->
-        <div class="sample-box">
-            <h2>4. Ветка сакуры</h2>
-            <p class="instruction">Левая рука — цветок (розовый), правая рука — лепестки (оранжевый). Рисовать синхронно!</p>
-            <div class="canvas-wrap">
-                <canvas id="sakuraCanvas" width="280" height="130" style="background:#fffaf5; border-radius:12px;"></canvas>
-            </div>
-        </div>
-    </div>
+        <!-- Ствол -->
+        <path d="M400 620 L400 440" fill="none" stroke="#6b3a1f" stroke-width="22" stroke-linecap="round"/>
+        <path d="M390 620 L390 440" fill="none" stroke="#7a4b2a" stroke-width="10" stroke-linecap="round"/>
 
-    <button onclick="downloadPDF()">📥 Скачать PDF с образцами</button>
-    <p class="footer-note">Распечатайте PDF и покажите детям перед испытанием «Зеркальные художники»</p>
+        <!-- Ветви (основные ответвления) -->
+        <!-- Левая нижняя ветвь -->
+        <path d="M395 540 Q320 500 260 440" fill="none" stroke="#5d3a1a" stroke-width="10" stroke-linecap="round"/>
+        <!-- Левая средняя ветвь -->
+        <path d="M395 490 Q300 430 220 350" fill="none" stroke="#5d3a1a" stroke-width="9" stroke-linecap="round"/>
+        <!-- Левая верхняя ветвь -->
+        <path d="M395 460 Q330 380 280 280" fill="none" stroke="#5d3a1a" stroke-width="8" stroke-linecap="round"/>
 
-    <script>
-        // Рисуем упрощённую ветку сакуры
-        (function drawSakura() {
-            const canvas = document.getElementById('sakuraCanvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // Ветка
-            ctx.beginPath();
-            ctx.moveTo(30, 100);
-            ctx.quadraticCurveTo(130, 60, 240, 80);
-            ctx.strokeStyle = '#8B5A2B';
-            ctx.lineWidth = 3.5;
-            ctx.stroke();
-            // Функция рисования цветка
-            function drawFlower(x, y, outerColor, innerColor) {
-                ctx.beginPath();
-                for (let i = 0; i < 5; i++) {
-                    let angle = i * (Math.PI * 2 / 5) - Math.PI / 2;
-                    let px = x + 12 * Math.cos(angle);
-                    let py = y + 12 * Math.sin(angle);
-                    ctx.lineTo(px, py);
-                }
-                ctx.closePath();
-                ctx.strokeStyle = outerColor;
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                ctx.fillStyle = innerColor;
-                ctx.fill();
-            }
-            drawFlower(90, 45, '#d98695', '#f9c5d1');
-            drawFlower(190, 55, '#e09f7e', '#f9d1c5');
-            ctx.font = 'italic 11px "Segoe UI", sans-serif';
-            ctx.fillStyle = '#333';
-            ctx.fillText('🤚 левая', 55, 80);
-            ctx.fillText('🖐️ правая', 175, 90);
-        })();
+        <!-- Правая нижняя ветвь -->
+        <path d="M405 540 Q480 500 540 430" fill="none" stroke="#5d3a1a" stroke-width="10" stroke-linecap="round"/>
+        <!-- Правая средняя ветвь -->
+        <path d="M405 490 Q500 430 580 340" fill="none" stroke="#5d3a1a" stroke-width="9" stroke-linecap="round"/>
+        <!-- Правая верхняя ветвь -->
+        <path d="M405 460 Q480 370 520 270" fill="none" stroke="#5d3a1a" stroke-width="8" stroke-linecap="round"/>
 
-        async function downloadPDF() {
-            const element = document.getElementById('capture');
-            const canvas = await html2canvas(element, {
-                scale: 2,
-                backgroundColor: '#faf8f0',
-                logging: false
-            });
+        <!-- Верхняя центральная ветвь -->
+        <path d="M400 450 Q400 380 400 300" fill="none" stroke="#5d3a1a" stroke-width="8" stroke-linecap="round"/>
 
-            const imgData = canvas.toDataURL('image/png');
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF('p', 'mm', 'a4');
+        <!-- Мелкие ветки и листва (группы листьев) -->
+        <!-- Левая сторона -->
+        <ellipse cx="250" cy="430" rx="50" ry="35" fill="#4a7c2e" opacity="0.9"/>
+        <ellipse cx="240" cy="440" rx="40" ry="30" fill="#3c6b1f" opacity="0.8"/>
+        <ellipse cx="210" cy="340" rx="55" ry="40" fill="#4a7c2e" opacity="0.9"/>
+        <ellipse cx="200" cy="350" rx="45" ry="35" fill="#5a8f3a" opacity="0.8"/>
+        <ellipse cx="270" cy="270" rx="50" ry="35" fill="#4a7c2e" opacity="0.9"/>
+        <ellipse cx="280" cy="280" rx="40" ry="30" fill="#3c6b1f" opacity="0.8"/>
+        <!-- Правая сторона -->
+        <ellipse cx="550" cy="420" rx="50" ry="35" fill="#4a7c2e" opacity="0.9"/>
+        <ellipse cx="560" cy="430" rx="40" ry="30" fill="#3c6b1f" opacity="0.8"/>
+        <ellipse cx="590" cy="330" rx="55" ry="40" fill="#4a7c2e" opacity="0.9"/>
+        <ellipse cx="600" cy="340" rx="45" ry="35" fill="#5a8f3a" opacity="0.8"/>
+        <ellipse cx="530" cy="260" rx="50" ry="35" fill="#4a7c2e" opacity="0.9"/>
+        <ellipse cx="520" cy="270" rx="40" ry="30" fill="#3c6b1f" opacity="0.8"/>
+        <!-- Верхушка -->
+        <ellipse cx="400" cy="280" rx="60" ry="45" fill="#4a7c2e" opacity="0.9"/>
+        <ellipse cx="400" cy="290" rx="50" ry="40" fill="#5a8f3a" opacity="0.8"/>
 
-            const pageWidth = pdf.internal.pageSize.getWidth();
-            const pageHeight = pdf.internal.pageSize.getHeight();
+        <!-- Декоративные листики (маленькие) вокруг ветвей -->
+        <circle cx="280" cy="450" r="8" fill="#6aa84f"/>
+        <circle cx="230" cy="400" r="7" fill="#8dc63f"/>
+        <circle cx="320" cy="460" r="6" fill="#6aa84f"/>
+        <circle cx="200" cy="310" r="8" fill="#8dc63f"/>
+        <circle cx="250" cy="250" r="7" fill="#6aa84f"/>
+        <circle cx="520" cy="440" r="8" fill="#6aa84f"/>
+        <circle cx="570" cy="390" r="7" fill="#8dc63f"/>
+        <circle cx="480" cy="460" r="6" fill="#6aa84f"/>
+        <circle cx="600" cy="300" r="8" fill="#8dc63f"/>
+        <circle cx="550" cy="240" r="7" fill="#6aa84f"/>
 
-            // Максимальная полезная область: поля по 10 мм с каждой стороны
-            const maxWidth = pageWidth - 20;
-            const maxHeight = pageHeight - 20;
+        <!-- Подписи на ветвях (предметы) -->
+        <!-- Каждая подпись расположена рядом с соответствующей ветвью -->
+        <text x="180" y="415" font-size="20" font-weight="bold" fill="#2d1e0f" transform="rotate(-15, 180, 415)">Математика</text>
+        <text x="150" y="320" font-size="20" font-weight="bold" fill="#2d1e0f" transform="rotate(-25, 150, 320)">Русский язык</text>
+        <text x="230" y="240" font-size="20" font-weight="bold" fill="#2d1e0f" transform="rotate(-10, 230, 240)">Чтение</text>
 
-            let imgWidth = maxWidth;
-            let imgHeight = (canvas.height * imgWidth) / canvas.width;
+        <text x="560" y="405" font-size="20" font-weight="bold" fill="#2d1e0f" transform="rotate(15, 560, 405)">Окружающий мир</text>
+        <text x="610" y="305" font-size="20" font-weight="bold" fill="#2d1e0f" transform="rotate(25, 610, 305)">Физкультура</text>
+        <text x="540" y="230" font-size="20" font-weight="bold" fill="#2d1e0f" transform="rotate(10, 540, 230)">Музыка</text>
 
-            // Если высота выходит за пределы страницы, уменьшаем ширину изображения
-            if (imgHeight > maxHeight) {
-                imgWidth = (canvas.width * maxHeight) / canvas.height;
-                imgHeight = maxHeight;
-            }
+        <text x="370" y="260" font-size="20" font-weight="bold" fill="#2d1e0f" text-anchor="middle">Технология</text>
+        <text x="430" y="310" font-size="20" font-weight="bold" fill="#2d1e0f" text-anchor="middle">ИЗО</text>
 
-            // Центрируем по горизонтали (по левому краю с отступом 10 мм или центру)
-            const x = (pageWidth - imgWidth) / 2;
-            const y = 10;
+        <!-- Надпись "Мои интересы" на корнях -->
+        <text x="400" y="760" font-size="24" font-weight="bold" fill="#3e2213" text-anchor="middle" letter-spacing="1">Мои интересы</text>
 
-            pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
-            pdf.save('obrazcy-dvuruchnogo-risovaniya.pdf');
-        }
-    </script>
+        <!-- Имя в стволе -->
+        <text x="400" y="555" font-size="22" font-weight="bold" fill="#f5f0e0" text-anchor="middle" letter-spacing="2">ИМЯ</text>
+
+        <!-- Заголовок -->
+        <text x="400" y="45" font-size="28" font-weight="bold" fill="#4a3b1f" text-anchor="middle" font-family="'Comic Sans MS', cursive, sans-serif">Дерево моих интересов</text>
+    </svg>
+</div>
 </body>
 </html>
